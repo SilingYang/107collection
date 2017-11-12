@@ -35,7 +35,7 @@ var even_group_calculate_average = function(collection){
             }
             else if(len==3)
             {
-                arr3.push(temp[j]);
+                arr3.push(temp1[j]);
             }
         }
         if((arr1.length==0)&&(arr2.length==0)&&(arr3.length!=0))
@@ -66,7 +66,7 @@ var even_group_calculate_average = function(collection){
                 }
                 result[0]=aver1/arr1.length;
                 result[1]=aver2/arr2.length;
-                result[2]=aver2/arr2.length;
+                result[2]=aver3/arr3.length;
         }//else
     
     }

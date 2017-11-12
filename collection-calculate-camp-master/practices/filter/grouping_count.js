@@ -2,20 +2,24 @@
 
 function grouping_count(collection) {
 
-  let result=[];
-  let j=0;
+  let result=new Map();
   for(let i=0;i<collection.length;i++)
   {
-    if(i=collection.indexOf(collection[i]))
+    if(!result.has(collection[i]))//该元素第一次出现
     {
-      result[j]={key:collection[i],count:1};
-      j++;
+      result.set(collection[i],1);
     }
     else
     {
-      result[result.indexOf(collection[i])].count++;
+      result.set(collection[i],result.get(collection[i])+1);
     }
   }
+  let re = {};
+  for(let [key,value] of result.entries()){
+    re[key]=value;
+  }
+  return re;
 }
+console.log(grouping_count([1,1,1,1,2,3,1,3,4,2,3,1,3,4,2]));
 
 module.exports = grouping_count;

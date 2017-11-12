@@ -84,35 +84,36 @@ function get_letter_interval_2(number_a, number_b) {
   {
     for(let i=number_a;i<=number_b;i++)
     {
-      if(i<27)
-      {
-        result.push(String.fromCharCode(96+i));
-        
-      }
-      else{
-        let fir=Math.floor((i-27)/26);
-        let sec=(i-27)%26;
-        result.push(String.fromCharCode(97+fir)+String.fromCharCode(97+sec));
-      }
+      result.push(t(i))
     }
   }
   else 
   {
     for(let i=number_a;i>=number_b;i--)
     {
-      if(i<27)
-      {
-        result.push(String.fromCharCode(96+i));
-        
-      }
-      else{
-        let fir=(i-27)/26;
-        let sec=(i-27)%26;
-        result.push(String.fromCharCode(97+fir)+String.fromCharCode(97+sec));
-      }
+      result.push(t(i));
     }
   }
+  return result;
 }
 
 module.exports = get_letter_interval_2;
 
+// module.exports = function(){};
+
+function t(num){
+  let str="";
+  while(num){
+    if(num%26===0){
+      str='z'+str;
+      num--;
+    }else{
+      str=String.fromCharCode(num%26+96)+str;
+    }
+    num=parseInt(num/26);
+  }
+  return str;
+}
+
+
+console.log(t(53));
